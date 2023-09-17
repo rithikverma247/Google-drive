@@ -1,0 +1,367 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="../stylesheets/home.css">
+    <!-- <link rel="stylesheet" href="../stylesheets/loco.css"> -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+</head>
+   <style>
+       #starred {
+        background-color: #c3e6ff;
+       }
+       #mydrive{
+        background-color: transparent;
+    margin-left: 5px !important;
+       }
+       #mydrive:hover{
+        background-color: #d8d4d4;
+    }
+       .head{
+        margin-bottom: 10px;
+    }
+    .right_contant{
+        height: 88vh !important;
+        padding-top: 70px;
+    }
+    .head{
+        position: fixed;
+        top: 12%;
+    }
+    .unav{
+        position: fixed;
+        top: 19%;
+        width: 80% !important;
+        background-color: #fff;
+    }
+    .new{
+        margin-left: 25px !important;
+        margin-bottom: 10px;
+    }
+    #mydrive i{
+    display: none;
+   }
+  
+   .unav .l{
+    width: 30% !important;
+   }
+   .unav .r{
+    padding: initial !important;
+    padding-left:70px !important;
+    width: 50% !important;
+   }
+   .empty_div{
+      height: 80vh;
+      padding-right: 150px;
+   }
+   </style>
+<body>
+    <div id="main">
+        <% include ./partials/nav.ejs %>
+
+        <div class="contant">
+
+            <% include ./partials/sidenav.ejs %>
+            <% if((user.starred.length === 0)){ %>
+                <div class="empty_div">
+                     <div class="emptyimg">
+                          <img src="https://ssl.gstatic.com/docs/doclist/images/empty_state_starred_files_v3.png" alt="">
+                     </div>
+                      <h6>No starred files</h6>
+                      <p>Add starred to things tht you want to easily find later.</p>
+                </div>
+          <% }else{ %>
+            <div class="right_contant">
+                <div class="head">
+                    <div class="md">
+                        <h3>Starred</h3>
+                    </div>
+                    <div class="svgs">
+                        <svg class="a-s-fa-Ha-pa c-qd" width="24px" height="24px" viewBox="0 0 24 24"
+                            fill="currentColor">
+                            <path
+                                d="M2,5v14h20V5H2z M14,7v4h-4V7H14z M4,7h4v4H4V7z M16,11V7h4v4H16z M4,17v-4h4v4H4z M10,17v-4h4v4H10z M20,17 h-4v-4h4V17z">
+                            </path>
+                            <path d="M0 0h24v24H0z" fill="none"></path>
+                        </svg>
+                        <svg class="a-s-fa-Ha-pa c-qd" width="24px" height="24px" viewBox="0 0 24 24"
+                            fill="currentColor">
+                            <path d="M0 0h24v24H0z" fill="none"></path>
+                            <path
+                                d="M11 17h2v-6h-2v6zm1-15C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zM11 9h2V7h-2v2z">
+                            </path>
+                        </svg>
+                    </div>
+                </div>
+
+                <div class="uploads">
+                    <div class="unav">
+                        <div class="l">
+                            <h6>Name</h6>
+                        </div>
+                        <div class="r">
+                            <h6>Owner</h6>
+                            <div class="lm">
+                                <h6>Last modified</h6>
+                                <i class="ri-arrow-down-s-fill"></i>
+                            </div>
+                            <div class="fs">
+                                <h6>File size</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <% user.starredFolder.forEach(function(elem){ %>
+                                    <div class="upldrow">
+                                        <div class="l">
+                                            <div class="fimg">
+                                                <a href="#">
+                                                    <svg height="24px" width="24px" focusable="false" viewBox="0 0 24 24"
+                                                        fill="#5f6368" class="a-s-fa-Ha-pa">
+                                                        <g>
+                                                            <path
+                                                                d="M10 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2h-8l-2-2z">
+                                                            </path>
+                                                            <path d="M0 0h24v24H0z" fill="none"></path>
+                                                        </g>
+                                                    </svg>
+                                                </a>
+                                            </div>
+                                            <h6>
+                                                <%= elem.folderName %>
+                                            </h6>
+                                            <a href="#"><i class="ri-star-fill"></i></a>
+                                        </div>
+                                        <div class="r">
+                                            <h6>me</h6>
+                                            <h6>
+                                                heyy
+                                            </h6>
+                                            <div class="fs">
+                                                <h6>
+                                                    1MB
+                                                </h6>
+                                                <div class="hover_div">
+                                                   <a href="/folders/<%= elem.folderName %>"> <i class="ri-user-shared-line"></i></a>
+                                                    <i class="ri-download-2-fill"></i>
+                                                    <i class="ri-edit-line"></i>
+                                                    <a href="/remove/starredfolder/<%= elem._id %>"><i
+                                                            class="ri-star-fill"></i></a>
+                                                    <i class="ri-more-2-fill"></i>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                    <% }) %>
+                    <% user.starred.forEach(function(elem){ %>
+                        <% var update=elem.createdAt %>
+                            <% var picSize=((Math.round(elem.picSize) / 100000).toFixed(1)) %>
+                                <% dateString=update.toDateString(); %>
+                                    <a href="/home">
+                                        <div class="upldrow">
+                                            <div class="l">
+                                                <% if(elem.ext==="jpg" ){ %>
+                                                    <div class="fimg">
+                                                        <a href="#">
+                                                            <img src="<%= elem.pic %>" alt="">
+                                                        </a>
+                                                    </div>
+                                                    <% } %>
+                                                    <% if(elem.ext==="png" ){ %>
+                                                        <div class="fimg">
+                                                            <a href="#">
+                                                                <img src="<%= elem.pic %>" alt="">
+                                                            </a>
+                                                        </div>
+                                                        <% } %>
+                                                        <% if(elem.ext==="webp" ){ %>
+                                                            <div class="fimg">
+                                                                <a href="#">
+                                                                    <img src="<%= elem.pic %>" alt="">
+                                                                </a>
+                                                            </div>
+                                                            <% } %>
+                                                    <% if(elem.ext==="mp4" ){ %>
+                                                        <div class="fimg">
+                                                            <a href="#">
+                                                                <video src="<= elem.pic %>"></video>
+                                                            </a>
+                                                        </div>
+                                                        <% } %>
+                                                        <% if(elem.ext==="txt" ){ %>
+                                                            <div class="fimg">
+                                                                    <a href="#">
+                                                                        <img src="https://drive-thirdparty.googleusercontent.com/32/type/text/plain"
+                                                                            alt="">
+                                                                    </a>
+                                                            </div>
+                                                            <% } %>
+                                                                <% if(elem.ext==="pdf" ){ %>
+                                                                    <div class="fimg">
+                                                                        <a href="#">
+                                                                            <img src="https://drive-thirdparty.googleusercontent.com/32/type/application/pdf"
+                                                                                alt="">
+                                                                        </a>
+                                                                    </div>
+                                                                    <% } %>
+                                                <h6>
+                                                    <%= elem.originalName %>
+                                                </h6>
+                                                <a href="#"><i class="ri-star-fill"></i></a>
+                                            </div>
+                                            <div class="r">
+                                                <h6>me</h6>
+                                                <h6>
+                                                    <%= dateString %>
+                                                </h6>
+                                                <div class="fs">
+                                                    <h6>
+                                                        <%= picSize %>MB
+                                                    </h6>
+                                                    <div class="hover_div">
+                                                        <a href="/starredimg/<%= elem._id %>"> <i class="ri-user-shared-line"></i></a>
+                                                        <i class="ri-download-2-fill"></i>
+                                                        <i class="ri-edit-line"></i>
+                                                        <a href="/remove/starred/<%= elem._id %>"><i
+                                                                class="ri-star-fill"></i></a>
+                                                        <i class="ri-more-2-fill"></i>
+    
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                    <% }) %>
+
+                </div>
+            </div>
+          <% } %>
+            
+
+            <div class="createfolder">
+                <h5>New folder</h5>
+                <form action="/createfolder">
+                    <input type="text" placeholder="Untitled folder" name="foldername">
+                    <div class="buttons">
+                        <a id="cancel" href="#">
+                            cancel
+                        </a>
+                        <button type="submit">
+                            create
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+        <div class="createfolder">
+            <h5>New folder</h5>
+            <form action="/createfolder" method="post">
+                <input type="text" placeholder="Untitled folder" name="folders">
+                <div class="buttons">
+                    <a id="cancel" href="/home">
+                        cancel
+                    </a>
+                    <button type="submit">
+                        create
+                    </button>
+                </div>
+            </form>
+        </div>
+        <div class="hvr">
+            <div class="card_f">
+                <a id="cf" href="#">
+                    <div class="cf">
+                        <i class="ri-folder-add-line"></i>
+                        New folder
+                    </div>
+                </a>
+
+                <div class="uploads">
+                    <a id="file_upload" href="#">
+                        <div class="cf">
+                            <i class="ri-file-upload-line"></i>
+                            File upload
+                        </div>
+                    </a>
+                    <a href="#">
+                        <div class="cf">
+                            <i class="ri-folder-upload-line"></i>
+                            Folder upload
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <form id="mf" action="/uploadPrfl" method="post"enctype="multipart/form-data">
+            <div class="mb-3">
+                <label for="formFileMultiple" class="form-label">Multiple
+                    files input example</label>
+                <input id="pfile" name="pfilenames" class="form-control" type="file" id="formFileMultiple" multiple>
+            </div>
+            <input class="btn btn-primary" type="submit" value="Submit">
+
+         </form> 
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+
+    <script src="../javascripts/script.js"></script>
+    <script>
+           document.querySelector("#camera")
+        .addEventListener("click",function(){
+          document.querySelector("#pfile").click();
+
+        })
+        document.querySelector("#pfile").addEventListener("change",function(){
+           document.querySelector("#mf").submit();
+        })
+             document.querySelector(".profile")
+        .addEventListener("click",function(){
+            if(flag === 0){
+                document.querySelector(".prf_card").style.display = "initial";
+                flag = 1;
+            }
+            else{
+                document.querySelector(".prf_card").style.display = "none";
+                flag = 0;
+            }
+        })
+        var flag = 0;
+        document.querySelector(".new")
+            .addEventListener("click", function () {
+                if (flag === 0) {
+
+                    document.querySelector(".hvr").style.opacity = 1;
+                    document.querySelector(".hvr").style.top = "22%";
+                    document.querySelector(".hvr").style.left = "1%";
+                    flag = 1;
+                }
+                else {
+                    document.querySelector(".hvr").style.opacity = 0;
+                    flag = 0;
+                }
+
+            })
+
+        document.querySelector("#cf")
+            .addEventListener("click", function () {
+                if (flag === 0) {
+                    document.querySelector(".createfolder").style.scale = 1;
+                    flag = 1;
+                }
+                else {
+                    document.querySelector(".createfolder").style.scale = 0;
+                    flag = 0;
+                }
+            })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../stylesheets/login.css">
+</head>
+<body>
+    <section>
+        <div class="main-form-container">
+          <form method="post" action="/register">
+            <div id="form_section" class="form-container">
+                <div class="login-form form-wraper ">
+                  <div>
+                    <div class="form-title">
+                      <h2>Sign Up</h2>
+                    </div>
+                    <div class="input-group">
+                      <div class="box">
+                        <span>
+                          <input name="username" placeholder="Username" class="myInput" type="text" />
+                        </span>
+                      </div>
+                      <div class="box">
+                        <span>
+                          <input name="name" placeholder="Name" class="myInput" type="text" />
+                        </span>
+                      </div>
+                      <div class="box">
+                        <span>
+                          <input name="email" placeholder="Email" class="myInput" type="text" />
+                        </span>
+                      </div>
+                    </div>
+                    <div class="input-group">
+                      <div class="box">
+                        <span>
+                          <input name="password" placeholder="Password" class="myInput" type="text" />
+                        </span>
+                      </div>
+                    </div>
+                    
+                     <div class="forget-password">
+                        <a class="button google" style="color: #000 !important;" href="/login/federated/google">Sign in with google</a>
+                      </div>
+                      <div style="margin-top: 10px;" class="forget-password">
+                        <a href="/forgot">FORGOT PASSWORD</a>
+                      </div>
+                    <div class="action-button">
+                      <button type="submit">Sign up</button>
+                    </div>
+                  </div>
+                </div>
+                <div class="signUp-form form-wraper">
+                  <div>
+                    <div class="form-title">
+                      <h2>Sign Up</h2>
+                    </div>
+                    <div class="input-group">
+                      <div class="box">
+                        <span>
+                          <input placeholder="Full Name" class="myInput" type="text" />
+                        </span>
+                      </div>
+                    </div>
+                    <div class="input-group">
+                      <div class="box">
+                        <span>
+                          <input placeholder="Email" class="myInput" type="text" />
+                        </span>
+                      </div>
+                    </div>
+                    <div class="input-group">
+                      <div class="box">
+                        <span>
+                          <input placeholder="Mobile No." class="myInput" type="number" />
+                        </span>
+                      </div>
+                    </div>
+                    <div style="margin-bottom: 0px;" class="input-group">
+                      <div class="box">
+                        <span>
+                          <input placeholder="Password" class="myInput" type="password" />
+                        </span>
+                      </div>
+                    </div>
+                    <div class="action-button">
+                      <button>Sign Up</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div id="multiple-btn" class="bg-btn-container">
+                <div class="action-button">
+                  <button>Login</button>
+                </div>
+                
+              </div>
+          </form>
+          <a href="/">
+            <div id="sign-up-btn" class="action-button">
+                <button>Login</button>
+              </div>
+          </a>
+      
+        </div>
+      </section>
+      <script src="../javascripts/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,357 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="../stylesheets/home.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+</head>
+<style>
+    .contant {
+        flex-direction: row-reverse;
+    }
+
+    .fimg video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .picture video {
+        width: 100%;
+        height: 100%;
+        object-fit: scale-down;
+    }
+
+    .head {
+        position: fixed;
+        top: 11%;
+        background-color: #fff;
+    }
+
+    .suggested {
+        margin-top: 60px;
+    }
+
+    #storage {
+        margin-top: 15px;
+        background-color: #c3e6ff;
+    }
+
+    #mydrive {
+        margin-top: 15px;
+        background-color: transparent;
+    }
+
+    .suggested .fimg {
+        /* background-color: red; */
+        height: 20px;
+        width: 20px;
+    }
+
+    .suggested .fimg img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+
+    /* #upldp{
+    padding-left: 10px;
+    padding-right: 10px;
+   } */
+    .upldrow .r {
+        /* background-color: teal; */
+        width: 65% !important;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 10px;
+    }
+
+    .upldrow .l {
+        /* background-color: teal; */
+        width: 35% !important;
+        padding-left: 5px;
+    }
+
+    .unav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-bottom: 10px;
+        padding-left: 12px;
+    }
+
+    .unav .l {
+        width: 35% !important;
+    }
+
+    .unav .r {
+        width: 35% !important;
+        padding-right: 40px;
+        padding-left: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end !important;
+
+        /* background-color: rebeccapurple; */
+    }
+
+    .fs {
+        display: flex;
+        align-items: center;
+        gap: 2px;
+    }
+
+    .fs svg {
+        margin-bottom: 10px;
+    }
+
+    .post {
+        width: 100%;
+        /* background-color: red; */
+        height: 8vh;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 10px;
+        border-top: 1px solid #111;
+        border-bottom: .1px solid #555454;
+        padding-right: 90px;
+    }
+
+    .post .pl {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+    .post .pl img{
+        width: 22px;
+        height: 22px;
+        margin-bottom: 10px;
+        /* background-color: red; */
+    }
+    .empty_div{
+      height: 80vh;
+      padding-right: 150px;
+   }
+   #mydrive {
+        background-color: transparent;
+        margin-top: initial;
+
+    margin-left: 5px !important;
+    }
+    #mydrive:hover{
+        background-color: #d8d4d4;
+    }
+</style>
+
+<body>
+    <div id="main">
+        <% include ./partials/nav.ejs %>
+            <div class="contant">
+                <% if((user.posts.length === 0)){ %>
+                    <div class="empty_div">
+                         <div class="emptyimg">
+                              <img src="https://ssl.gstatic.com/docs/doclist/images/empty_state_storage.png" alt="">
+                         </div>
+                        <h6>No files are using storage</h6>
+                                <p>Items you will own use My Drive storage.</p>
+                    </div>
+              <% }else{ %>
+                <div class="right_contant">
+                    <div class="head">
+                        <div class="md">
+                            <h3 style="padding: 0 10px; padding-top: 5px;">Storage</h3>
+                        </div>
+                        <div class="svgs">
+                            <svg class="a-s-fa-Ha-pa c-qd" width="24px" height="24px" viewBox="0 0 24 24"
+                                fill="currentColor">
+                                <path
+                                    d="M2,5v14h20V5H2z M14,7v4h-4V7H14z M4,7h4v4H4V7z M16,11V7h4v4H16z M4,17v-4h4v4H4z M10,17v-4h4v4H10z M20,17 h-4v-4h4V17z">
+                                </path>
+                                <path d="M0 0h24v24H0z" fill="none"></path>
+                            </svg>
+                            <svg class="a-s-fa-Ha-pa c-qd" width="24px" height="24px" viewBox="0 0 24 24"
+                                fill="currentColor">
+                                <path d="M0 0h24v24H0z" fill="none"></path>
+                                <path
+                                    d="M11 17h2v-6h-2v6zm1-15C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zM11 9h2V7h-2v2z">
+                                </path>
+                            </svg>
+                        </div>
+                    </div>
+
+
+                    <div class="uploads">
+                        <div style="margin-top: 50px;" class="unav">
+                            <div class="l">
+                                <h6>Files using MY Drive storage</h6>
+                            </div>
+                            <div class="r">
+
+                                <div class="fs">
+                                    <h6>Storage used</h6>
+                                    <div class="KZ6CTb a-c-d" tabindex="0" role="button" data-tooltip-align="b,c"
+                                        data-tooltip-delay="500" data-tooltip-unhoverable="true"
+                                        jsaction="click:STMdAc; mousedown:npT2md" data-tooltip="Reverse sort direction"
+                                        aria-label="Reverse sort direction"><svg width="18px" height="18px"
+                                            viewBox="0 0 48 48" focusable="false" fill="currentColor"
+                                            class="a-s-fa-Ha-pa c-qd">
+                                            <path fill="none" d="M0 0h48v48H0V0z"></path>
+                                            <path
+                                                d="M40 24l-2.82-2.82L26 32.34V8h-4v24.34L10.84 21.16 8 24l16 16 16-16z">
+                                            </path>
+                                        </svg></div>
+                                </div>
+                            </div>
+                        </div>
+                        <% user.posts.forEach(function(file){ %>
+                            <% var fs=((file.picSize / (1024 ** 2)).toFixed(1)) %>
+                            <div class="post">
+                                <div class="pl">
+                                    <% if(file.ext==="jpg" ){ %>
+
+                                        <img src="<%= file.pic %>"
+                                            alt="">
+                                        <% } %>
+                                        <% if(file.ext==="png" ){ %>
+
+                                            <img src="<%= file.pic %>"
+                                                alt="">
+                                            <% } %>
+                                            <% if(file.ext==="webp" ){ %>
+
+                                                <img src="<%= file.pic %>"
+                                                    alt="">
+                                                <% } %>
+                                            <% if(file.ext==="mp4" ){ %>
+                                                <div class="fimg">
+                                                    <a href="#">
+                                                        <img src="https://drive-thirdparty.googleusercontent.com/32/type/video/mp4"
+                                                            alt="">
+                                                    </a>
+                                                </div>
+                                                <% } %>
+                                                    <% if(file.ext==="txt" ){ %>
+                                                        <div class="fimg">
+                                                            <a href="#">
+                                                                <img src="https://drive-thirdparty.googleusercontent.com/32/type/text/plain"
+                                                                    alt="">
+                                                            </a>
+                                                        </div>
+                                                        <% } %>
+                                                            <% if(file.ext==="pdf" ){ %>
+                                                                <div class="fimg">
+                                                                    <a href="#">
+                                                                        <img src="https://drive-thirdparty.googleusercontent.com/32/type/application/pdf"
+                                                                            alt="">
+                                                                    </a>
+                                                                </div>
+                                                                <% } %>
+
+
+                                                                    <h6>
+                                                                        <%= file.originalName %>
+                                                                    </h6>
+                                </div>
+                                <h6><%= fs %>MB</h6>
+                            </div>
+                        <% }) %>
+                    </div>
+                </div>
+              <% } %>
+                
+                <form id="mf1" action="/upload" method="post" enctype="multipart/form-data">
+
+                    <div class="mb-3">
+                        <label for="formFileMultiple" class="form-label">Multiple
+                            files input example</label>
+                        <input id="file" name="filename" class="form-control" type="file" id="formFileMultiple"
+                            multiple>
+                    </div>
+                    <input class="btn btn-primary" type="submit" value="Submit">
+
+                </form>
+                <div class="createfolder">
+                    <h5>New folder</h5>
+                    <form action="/createfolder" method="post">
+                        <input type="text" placeholder="Untitled folder" name="folders">
+                        <div class="buttons">
+                            <a id="cancel" href="/home">
+                                cancel
+                            </a>
+                            <button type="submit">
+                                create
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                <div id="updatefolder" class="createfolder">
+                    <h5>Rename</h5>
+                    <form action="/uploadFolder" method="post">
+                        <input type="text" placeholder="Untitled folder" name="foldername">
+                        <div class="buttons">
+                            <a id="cancel" href="/home">
+                                cancel
+                            </a>
+                            <button style="letter-spacing: 1px;margin-left: 10px;margin-right: 10px;" type="submit">
+                                Ok
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                <% include ./partials/sidenav.ejs %>
+
+            </div>
+            <div class="hvr">
+                <div class="card_f">
+                    <a id="cf" href="#">
+                        <div class="cf">
+                            <i class="ri-folder-add-line"></i>
+                            New folder
+                        </div>
+                    </a>
+
+                    <div class="uploads">
+                        <a id="file_upload" href="#">
+                            <div class="cf">
+                                <i class="ri-file-upload-line"></i>
+                                File upload
+                            </div>
+                        </a>
+                        <a href="#">
+                            <div class="cf">
+                                <i class="ri-folder-upload-line"></i>
+                                Folder upload
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <form id="mf" action="/uploadPrfl" method="post" enctype="multipart/form-data">
+                <div class="mb-3">
+                    <label for="formFileMultiple" class="form-label">Multiple
+                        files input example</label>
+                    <input id="pfile" name="pfilenames" class="form-control" type="file" id="formFileMultiple" multiple>
+                </div>
+                <input class="btn btn-primary" type="submit" value="Submit">
+
+            </form>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+
+    <script src="../javascripts/script.js"></script>
+
+</body>
+
+</html>

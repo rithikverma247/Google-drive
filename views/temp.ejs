@@ -1,0 +1,283 @@
+<%=post %>
+
+
+<input type="text" placeholder="Search in Drive">
+<!-- nft -->
+
+
+
+
+<div id="upldp" class="upldrow">
+    <% if(user.starred.indexOf(file._id)===-1){ %>
+        <div class="l">
+            <% if(file.ext==="jpg" ){ %>
+                <div class="fimg">
+                    <a href="#">
+                        <img src="https://drive-thirdparty.googleusercontent.com/32/type/image/jpeg" alt="">
+                    </a>
+                </div>
+                <% } %>
+                <% if(file.ext==="mp4" ){ %>
+                    <div class="fimg">
+                        <a href="#">
+                            <img src="https://drive-thirdparty.googleusercontent.com/32/type/video/mp4" alt="">
+                        </a>
+                    </div>
+                    <% } %>
+                    <% if(file.ext==="txt" ){ %>
+                        <div class="fimg">
+                                <a href="#">
+                                    <img src="https://drive-thirdparty.googleusercontent.com/32/type/text/plain"
+                                        alt="">
+                                </a>
+                        </div>
+                        <% } %>
+                            <% if(file.ext==="pdf" ){ %>
+                                <div class="fimg">
+                                    <a href="#">
+                                        <img src="https://drive-thirdparty.googleusercontent.com/32/type/application/pdf"
+                                            alt="">
+                                    </a>
+                                </div>
+                                <% } %>
+
+
+                                    <h6>
+                                        <%= file.originalName %>
+                                    </h6>
+        </div>
+
+        <%}else{ %>
+            <div class="l">
+                <% if(file.ext==="jpg" ){ %>
+                    <div class="fimg">
+                        <a href="#">
+                            <img src="https://drive-thirdparty.googleusercontent.com/32/type/image/jpeg" alt="">
+                        </a>
+                    </div>
+                    <% } %>
+                    <% if(file.ext==="png" ){ %>
+                        <div class="fimg">
+                            <a href="#">
+                                <img src="https://drive-thirdparty.googleusercontent.com/32/type/image/jpeg" alt="">
+                            </a>
+                        </div>
+                        <% } %>
+                    <% if(file.ext==="mp4" ){ %>
+                        <div class="fimg">
+                            <a href="#">
+                                <img src="https://drive-thirdparty.googleusercontent.com/32/type/video/mp4" alt="">
+                            </a>
+                        </div>
+                        <% } %>
+                        <% if(file.ext==="txt" ){ %>
+                            <div class="fimg">
+                                    <a href="#">
+                                        <img src="https://drive-thirdparty.googleusercontent.com/32/type/text/plain"
+                                            alt="">
+                                    </a>
+                            </div>
+                            <% } %>
+                                <% if(file.ext==="pdf" ){ %>
+                                    <div class="fimg">
+                                        <a href="#">
+                                            <img src="https://drive-thirdparty.googleusercontent.com/32/type/application/pdf"
+                                                alt="">
+                                        </a>
+                                    </div>
+                                    <% } %>
+                                                <h6>
+                                                    <%= file.originalName
+                                                        %>
+                                                </h6>
+                                                <i
+                                                    class="ri-star-fill"></i>
+            </div>
+            <% } %>
+                <div class="r">
+                    <h6>me</h6>
+                    <h6 id="h6a">
+                        <%= dateString %>
+                    </h6>
+                    <div class="fs">
+                        <% strg +=file.picSize %>
+                            <h6 id="h6a">
+                                <%= fs %> MB
+                            </h6>
+                    </div>
+                    <div class="hover_div">
+                        <a href="/starimg/<%= file._id %>"><i
+                                class="ri-user-shared-line"></i></a>
+                                <a href="/details/<%= file._id %>">
+                                    <i class="ri-download-2-fill"></i>
+                                </a>
+                        <a href="/updatePost/<%= file._id %>">
+                            <i class="ri-edit-line"></i>    
+                        </a>
+                        <div class="stars">
+                            <% if(user.starred.indexOf(file._id)===-1){
+                                %>
+                                <a id="star"
+                                    href="/starred/<%= file._id%>">
+                                    <i class="ri-star-line"></i>
+                                </a>
+                                <% } else{ %>
+                                    <a
+                                        href="/remove/starred/<%= file._id %>">
+                                        <i class="ri-star-fill"></i>
+                                    </a>
+                                    <% } %>
+                        </div>
+                        <a href="/trash/<%= file._id%>"><i
+                                class="ri-delete-bin-line"></i>
+                        </a>
+                    </div>
+                </div>
+</div>
+
+
+
+
+
+
+
+<% if(user.starred.indexOf(file._id)===-1){ %>
+    <div class="l">
+        <% if(file.ext==="jpg" ){ %>
+            <div class="fimg">
+                <a href="#">
+                    <img src="<%= file.pic %>" alt="">
+                </a>
+            </div>
+            <% } %>
+            <% if(file.ext==="webp" ){ %>
+                <div class="fimg">
+                    <a href="#">
+                        <img src="<%= file.pic %>" alt="">
+                    </a>
+                </div>
+                <% } %>
+            <% if(file.ext==="png" ){ %>
+                <div class="fimg">
+                    <a href="#">
+                        <img src="<%= file.pic %>" alt="">
+                    </a>
+                </div>
+                <% } %>
+            <% if(file.ext==="mp4" ){ %>
+                <div class="fimg">
+                    <a href="#">
+                        <video src="<%= file.pic %>"></video>
+                        <img src="https://drive-thirdparty.googleusercontent.com/32/type/video/mp4" alt="">
+                    </a>
+                </div>
+                <% } %>
+                <% if(file.ext==="txt" ){ %>
+                    <div class="fimg">
+                            <a href="#">
+                                <img src="https://drive-thirdparty.googleusercontent.com/32/type/text/plain"
+                                    alt="">
+                            </a>
+                    </div>
+                    <% } %>
+                        <% if(file.ext==="pdf" ){ %>
+                            <div class="fimg">
+                                <a href="#">
+                                    <img src="https://drive-thirdparty.googleusercontent.com/32/type/application/pdf"
+                                        alt="">
+                                </a>
+                            </div>
+                            <% } %>
+
+
+                                <h6>
+                                    <%= file.originalName %>
+                                </h6>
+    </div>
+
+    <%}else{ %>
+        <div class="l">
+            <% if(file.ext==="jpg" ){ %>
+                <div class="fimg">
+                    <a href="#">
+                        <img src="https://drive-thirdparty.googleusercontent.com/32/type/image/jpeg" alt="">
+                    </a>
+                </div>
+                <% } %>
+                <% if(file.ext==="png" ){ %>
+                    <div class="fimg">
+                        <a href="#">
+                            <img src="https://drive-thirdparty.googleusercontent.com/32/type/image/jpeg" alt="">
+                        </a>
+                    </div>
+                    <% } %>
+                <% if(file.ext==="mp4" ){ %>
+                    <div class="fimg">
+                        <a href="#">
+                            <img src="https://drive-thirdparty.googleusercontent.com/32/type/video/mp4" alt="">
+                        </a>
+                    </div>
+                    <% } %>
+                    <% if(file.ext==="txt" ){ %>
+                        <div class="fimg">
+                                <a href="#">
+                                    <img src="https://drive-thirdparty.googleusercontent.com/32/type/text/plain"
+                                        alt="">
+                                </a>
+                        </div>
+                        <% } %>
+                            <% if(file.ext==="pdf" ){ %>
+                                <div class="fimg">
+                                    <a href="#">
+                                        <img src="https://drive-thirdparty.googleusercontent.com/32/type/application/pdf"
+                                            alt="">
+                                    </a>
+                                </div>
+                                <% } %>
+                                            <h6>
+                                                <%= file.originalName
+                                                    %>
+                                            </h6>
+                                            <i
+                                                class="ri-star-fill"></i>
+        </div>
+        <% } %>
+            <div class="r">
+                <h6>me</h6>
+                <h6 id="h6a">
+                    <%= dateString %>
+                </h6>
+                <div class="fs">
+                    <% strg +=file.picSize %>
+                        <h6 id="h6a">
+                            <%= fs %> MB
+                        </h6>
+                </div>
+                <div class="hover_div">
+                    <a href="/starimg/<%= file._id %>"><i
+                            class="ri-user-shared-line"></i></a>
+                            <a href="/details/<%= file._id %>">
+                                <i class="ri-download-2-fill"></i>
+                            </a>
+                    <a href="/updatePost/<%= file._id %>">
+                        <i class="ri-edit-line"></i>    
+                    </a>
+                    <div class="stars">
+                        <% if(user.starred.indexOf(file._id)===-1){
+                            %>
+                            <a id="star"
+                                href="/starred/<%= file._id%>">
+                                <i class="ri-star-line"></i>
+                            </a>
+                            <% } else{ %>
+                                <a
+                                    href="/remove/starred/<%= file._id %>">
+                                    <i class="ri-star-fill"></i>
+                                </a>
+                                <% } %>
+                    </div>
+                    <a href="/trash/<%= file._id%>"><i
+                            class="ri-delete-bin-line"></i>
+                    </a>
+                </div>
+            </div>

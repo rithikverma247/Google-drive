@@ -1,0 +1,279 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html,body{
+    width: 100%;
+    height: 100%;
+}
+#main{
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: center; */
+    width: 30%;
+    height: 70%;
+    background-color: #fff;
+    box-shadow: 0 0 3px #000;
+}
+.form .top{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 50px;
+}
+.form .top h5{
+    font-size: 30px;
+}
+.form .top h6{
+    font-size: 15px;
+}
+form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0 30px;
+    padding-top: 30px;
+}
+form input{
+    padding: 10px 0 !important;
+    padding-left: 15px !important;
+    width: 20vw !important;
+}
+form input::placeholder{
+    color: #000 !important;
+}
+form button{
+    margin-top: 20px;
+    padding: 7px 70px !important;
+    margin-bottom: 20px;
+}
+form button h6{
+    font-size: 20px;
+    letter-spacing: 1px;
+}
+.form a{
+    text-decoration: none;
+    color: #000;
+    font-weight: 600;
+    margin-top: 5px;
+}
+
+/* ////// */
+
+
+
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap");
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url("https://www.yudiz.com/codepen/animation-form/banner.jpg");
+  background-size: cover;
+  background-position: center;
+  min-height: 700px;
+  font-family: "Montserrat", sans-serif;
+  background-repeat: no-repeat;
+  height: 100vh;
+}
+.box {
+  position: relative;
+  width: 100%;
+  height: 50px;
+  background-color: #edf3f9;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  margin-top: 15px;
+}
+.box::after {
+  content: "";
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  transition: all 0.3s ease;
+}
+.box::before {
+  content: "";
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  transition: all 0.3s ease;
+}
+.box-animation::before {
+  animation: animateInputBorder 4s linear infinite;
+  animation-delay: -2s;
+  background-image: conic-gradient(
+    transparent,
+    transparent,
+    transparent,
+    #00ccff
+  );
+}
+.box-animation::after {
+  animation: animateInputBorder 4s linear infinite;
+  background-image: conic-gradient(
+    transparent,
+    transparent,
+    transparent,
+    #d400d4
+  );
+}
+@keyframes animateInputBorder {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.box span {
+  position: absolute;
+  inset: 3px;
+  background-color: #edf3f9;
+  border-radius: 10px;
+  z-index: 2;
+}
+.box span input {
+  width: 100%;
+  height: 100%;
+  border: none;
+  background-color: transparent;
+  color: black;
+  font-size: 20px;
+  padding: 16px;
+  position: relative;
+}
+.box span input:focus {
+  outline: none;
+  box-shadow: none;
+}
+form{
+    padding: 70px 0px;
+    background-color: #d0deec;
+    border-radius: 10px;
+    /* overflow: hidden; */
+    position: relative;
+    width: 50%;
+    transition: 0.3s;
+    min-height: 540px;
+    z-index: 1;
+    display: inline-flex;
+    align-items: center;
+  }
+.form-container {
+  padding: 70px 0px;
+  background-color: #d0deec;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  transition: 0.3s;
+  min-height: 540px;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+}
+
+.left-right .login-form {
+  transform: translateX(-100%);
+}
+.form-wraper .input-group:not(:last-child) {
+  margin-bottom: 30px;
+  margin-top: -12px;
+}
+.signUp-form {
+  transform: translateX(100%);
+}
+.left-right .signUp-form {
+  transform: translateX(0%);
+}
+.form-wraper {
+  padding: 0px 40px;
+  position: absolute;
+  width: 100%;
+  transition: 0.3s;
+}
+.action-button button {
+  border-radius: 10px;
+  font-family: "Avenir Next";
+  font-size: 20px;
+  padding: 0.5rem 3rem;
+  color: black;
+  box-shadow: 0 0 6px 0 rgba(157, 96, 212, 0.5);
+  border: solid 3px transparent;
+  background-image: linear-gradient(
+      rgba(255, 255, 255, 0),
+      rgba(255, 255, 255, 0)
+    ),
+    linear-gradient(101deg, #00ccff, #d400d4);
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+  box-shadow: none;
+  color: #edf3f9;
+  width: 100%;
+  padding: 10px;
+  margin-top: 30px;
+  transition: all 0.3s ease;
+}
+.action-button button:hover {
+  color: rgb(20, 20, 20);
+  box-shadow: 2px 1000px 1px #edf3f9 inset;
+}
+.form-title {
+  margin-bottom: 30px;
+}
+.main-form-container {
+  min-width: 800px;
+  background-color: rgba(0, 0, 0, 0.152);
+  border-radius: 10px;
+  position: relative;
+  height: 400px;
+  display: flex;
+  align-items: center;
+}
+.bg-btn-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 0;
+}
+.left-right {
+  transform: translateX(100%);
+}
+.section {
+  min-height: 800px;
+}
+
+#sign-up-btn{
+    /* background-color: red; */
+    margin-left: 150px !important;
+    white-space: nowrap;
+}
+#sign-up-btn button{
+    padding: 10px 30px !important;
+}

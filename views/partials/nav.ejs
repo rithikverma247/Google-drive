@@ -1,0 +1,270 @@
+
+<style>
+            /* ritik_css */
+
+            #search-div {
+        height: 100%;
+        width: 25%;
+        background-color: rgb(224, 224, 224);
+        background-color: #000 !important;
+        position: absolute;
+        left: -42%;
+        z-index: 99999999999999 !important;
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px;
+        z-index: 9;
+        top: 0;
+        transition: 0.6s;
+        border-left: 1px solid #fff;
+
+        }
+
+        #frm {
+        /* padding: 4vw 5vw; */
+        border-bottom: 0.6px solid #6d6b6b56;
+        /* display:initial; */
+        }
+        #frm form{
+        display: initial;
+        margin: initial;
+        /* margin-left: -70px !important; */
+        margin-top: 30px !important;
+        margin-left: 20px !important;
+        }
+
+        #frm h1 {
+        font-size: 30px;
+        margin-top: 60px !important;
+        margin-left: 20px !important;
+        letter-spacing: 1px;
+        /* margin-left: -45px !important;   */
+        }
+        #frm form input {
+        border: 0.6px solid #dadada;
+        outline: none;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 10px;
+        width: 330px;
+        font-size: 16px;
+        display:initial;
+        background-color: #fff !important;
+        }
+
+        #searchResult{
+          width: 100% !important;
+          margin-top: 100px;
+          border-top: 1px solid #fff;
+          padding-top: 20px;
+        }
+       #searchResult .user {
+          display: flex !important;
+          display: inline-block;
+          flex-direction: row;
+          width: 100% !important;
+          padding: 10px 0;
+          padding-left: 20px;
+          gap: 6px;
+          margin-right: 20px !important;
+          align-items: center  !important;
+          justify-content: flex-start !important;
+        }
+        #searchResult .user:hover{
+          background-color: #e6dddd;
+        }
+        .user{
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .user img {
+          height: 20px;
+          width: 20px;
+          /* border-radius: 50%; */
+          object-fit: cover;
+        }
+        #searchResult {
+          display: flex;
+          flex-direction: column;
+          height: 50vh;
+          position: absolute;
+          top: -6% !important;
+          left:38.91%;
+          border-top: 1px solid #000;
+          transform: translate(-50%,0%);
+          width: 44.7% !important;
+          z-index: 9999999;
+          /* overflow: auto; */
+          background-color: #fff;
+          box-shadow: 0 0 2px #000;
+          border-bottom-left-radius: 30px;
+          border-bottom-right-radius: 30px;
+          display: none;
+        }
+        #searchResult a {
+        color: #000;
+        text-decoration: none;
+        }
+        #searchResult h4 {
+        color: #000;
+        font-size: 15px;
+        margin-top: 10px;
+        }
+        
+
+        /* ritik_css */
+
+</style>
+
+<div id="nav">
+    <div class="nav_cover">
+        <div class="l">
+            <img src="https://ssl.gstatic.com/images/branding/product/1x/drive_2020q4_48dp.png" alt="#">
+            <h3>My Drive</h3>
+        </div>
+        <div class="c">
+            <div class="search">
+                <i class="ri-search-line"></i>
+                <form id="searchform" method="post">
+                    <input id="search" type="text" size="30" placeholder="Search" />
+                </form>
+                <svg class="Q6yead QJZfhe " width="24" height="24" viewBox="0 0 24 24" focusable="false">
+                    <path
+                        d="M3 17v2h6v-2H3zM3 5v2h10V5H3zm10 16v-2h8v-2h-8v-2h-2v6h2zM7 9v2H3v2h4v2h2V9H7zm14 4v-2H11v2h10zm-6-4h2V7h4V5h-4V3h-2v6z">
+                    </path>
+                </svg>
+            </div>
+        </div>
+    </div>
+
+    <div class="r">
+        
+        <% var name=user.name %>
+            <div class="profile">
+                <% if(user.profileimg){ %>
+                    <img src="../images/uploadPimg/<%= user.profileimg %>" alt="">
+                    <% }else{ %>
+                        <h6>
+                            <%= name.charAt(0).toUpperCase() %>
+                        </h6>
+                        <% } %>
+            </div>
+    </div>
+</div>
+<div id="searchResult"></div>
+
+<div class="prf_card">
+    <div class="prf">
+        <div class="circlep">
+            <div class="pimg">
+                <% if(user.profileimg){ %>
+                    <img id="prfl" src="../images/uploadPimg/<%= user.profileimg %>" alt="#">
+                    <% }else{ %>
+                        <h6>
+                            <%= name.charAt(0).toUpperCase() %>
+                        </h6>
+                        <% } %>
+
+            </div>
+            <div class="scircle">
+                <i id="camera" class="ri-camera-line"></i>
+            </div>
+        </div>
+        <div class="text">
+            <h6>
+                <%= user.name %>
+            </h6>
+            <h6 id="email">
+                <%= user.email %>
+            </h6>
+            </h6>
+        </div>
+    </div>
+    <a href="/editinfo">
+        <div id="so"  class="signout">
+            <i class="ri-pencil-line"></i>
+            <small>Manage your Google Account </small>
+        </div>
+    </a>
+    <a href="/removeprimg">
+        <div class="signout">
+            <i class="ri-logout-box-r-line"></i>
+            <small>Remove current image</small>
+        </div>
+    </a>
+    <a href="/logout">
+        <div class="signout">
+            <i class="ri-logout-box-r-line"></i>
+            <small>Sign out</small>
+        </div>
+    </a>
+    
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+<script>
+    $("#searchform").submit(function (event) {
+        event.preventDefault();
+        var search = $("#search").val();
+        console.log(search);
+
+        $.ajax({
+            url: "/searchUser",
+            type: "POST",
+            data: {
+                search: search,
+            },
+            success: function (response) {
+                if (response.success) {
+                    console.log(response);
+                    $("#searchResult").html("");
+                    $("#search").val("");
+                    let user = response.data;
+                    user.forEach(function (user) {
+                        var a = document.createElement("a");
+                        a.href = `starimg/${user._id}`;
+                        var div = document.createElement("div");
+                        div.classList.add("user");
+                        var Img = document.createElement("img");
+                        if(user.ext === "txt"){
+                           Img.src = `https://drive-thirdparty.googleusercontent.com/32/type/text/plain`;
+                        }else if(user.ext === "jpg"){
+                           Img.src = `https://drive-thirdparty.googleusercontent.com/32/type/image/jpeg`;
+                        }else if(user.ext == "png"){
+                           Img.src = `https://drive-thirdparty.googleusercontent.com/32/type/image/jpeg`;
+                        }else if(user.ext == "webp"){
+                           Img.src = `https://drive-thirdparty.googleusercontent.com/32/type/image/jpeg`;
+                        }else if(user.ext == "mp4"){
+                           Img.src = `https://drive-thirdparty.googleusercontent.com/32/type/video/mp4`;
+                        }else if(user.ext == "pdf"){
+                           Img.src = `https://drive-thirdparty.googleusercontent.com/32/type/application/pdf`;
+                        }
+                        var h4 = document.createElement("h4");
+                        h4.textContent = user.picName;
+                        div.appendChild(Img);
+                        div.appendChild(h4);
+                        a.appendChild(div);
+                        $("#searchResult").append(a);
+                    });
+                } else {
+                    console.log("heyyyyyxxxxxxxdm,sfn,m");
+                }
+            },
+        });
+    });
+
+    document.querySelector("#search")
+        .addEventListener("input", function (elem) {
+            var inputValue = elem.target.value.trim();
+            if (inputValue.length === 0) {
+                // document.querySelector("#searchResult").style.opacity = 0
+                document.querySelector("#searchResult").style.display = "none"
+                document.querySelector("#nav .c").style.borderBottomLeftRadius = "30px"
+                document.querySelector("#nav .c").style.borderBottomRightRadius = "30px"
+            } else {
+                // document.querySelector("#searchResult").style.opacity = 1
+                document.querySelector("#searchResult").style.display = "initial"
+                document.querySelector("#nav .c").style.borderBottomLeftRadius = "0px"
+                document.querySelector("#nav .c").style.borderBottomRightRadius = "0px"
+            }
+        })
+</script>
